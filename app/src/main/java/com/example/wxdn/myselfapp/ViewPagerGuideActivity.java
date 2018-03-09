@@ -22,6 +22,9 @@ import android.widget.ImageView;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.wxdn.myselfapp.ScollHandler.MSG_UPDATE_IMAGE;
+
 /*************************************************
  *@date：2017/7/4
  *@author：  zxj
@@ -76,13 +79,13 @@ public class ViewPagerGuideActivity extends Activity {
         viewPager.setOnPageChangeListener(new GuidePageChangeListener());
 		viewPager.setCurrentItem(0);//默认在第一个页面中间
 		//开始轮播效果
-//		handler.sendEmptyMessageDelayed(ScollHandler.MSG_BREAK_SILENT, ScollHandler.MSG_DELAY);
+		handler.sendEmptyMessageDelayed(ScollHandler.MSG_BREAK_SILENT, ScollHandler.MSG_DELAY);
 	}
 	@Override
 	public void onResume()
 	{
 		super.onResume();
-//		handler.sendEmptyMessageDelayed(ScollHandler.MSG_BREAK_SILENT, ScollHandler.MSG_DELAY);
+		handler.sendEmptyMessageDelayed(ScollHandler.MSG_BREAK_SILENT, ScollHandler.MSG_DELAY);
 	}
 	/*************************************************
      *@description： 适配器，页面位置的更新
@@ -140,7 +143,7 @@ public class ViewPagerGuideActivity extends Activity {
 					handler.sendEmptyMessage(ScollHandler.MSG_KEEP_SILENT);
 					break;
 				case ViewPager.SCROLL_STATE_IDLE:
-//					handler.sendEmptyMessageDelayed(MSG_UPDATE_IMAGE, ScollHandler.MSG_DELAY);
+					handler.sendEmptyMessageDelayed(MSG_UPDATE_IMAGE, ScollHandler.MSG_DELAY);
 					break;
 				default:
 					break;
@@ -169,10 +172,10 @@ public class ViewPagerGuideActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (event.getAction()) {
 				case MotionEvent.ACTION_DOWN:
-//					handler.sendEmptyMessage(ScollHandler.MSG_KEEP_SILENT);
+					handler.sendEmptyMessage(ScollHandler.MSG_KEEP_SILENT);
 					break;
 				case MotionEvent.ACTION_UP:
-//					handler.sendEmptyMessageDelayed(ScollHandler.MSG_UPDATE_IMAGE, ScollHandler.MSG_DELAY);
+					handler.sendEmptyMessageDelayed(MSG_UPDATE_IMAGE, ScollHandler.MSG_DELAY);
 					break;
 				default:
 					break;
